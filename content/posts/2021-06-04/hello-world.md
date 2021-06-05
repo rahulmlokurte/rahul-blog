@@ -1,6 +1,6 @@
 ---
-slug: "/posts/2021-06-04---Hello-World/hello-world/"
-date: "2021-06-02"
+slug: "/posts/2021-06-04/hello-world/"
+date: "2021-06-04"
 title: "Hello World"
 excerpt: "Our goal is to build a simple implementation of image recognition. To achieve this, we will use the Vision Framework"
 tag: "beginner"
