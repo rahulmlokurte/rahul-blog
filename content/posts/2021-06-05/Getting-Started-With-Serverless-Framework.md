@@ -54,7 +54,7 @@ Once the project is created successfully, you will see the below code.
 
 1. **handler.js**
 
-```javascript{numberLines: true}
+```javascript
 "use strict";
 
 module.exports.hello = async (event) => {
