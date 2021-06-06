@@ -2,7 +2,7 @@
 slug: "/posts/2021-06-05/Getting-Started-With-Serverless-Framework/"
 date: "2021-06-05"
 title: "Getting Started With Serverless Framework"
-excerpt: ""
+excerpt: "The serverless framework is an open source tool used for developing and deploying the serverless applications."
 tag: "cloud"
 ---
 
@@ -102,6 +102,7 @@ custom:
   localstack:
     debug: true
     stages:
+      - local
       - development
     endpointFile: endpoints.json
 frameworkVersion: "2"
@@ -115,3 +116,53 @@ functions:
   hello:
     handler: handler.hello
 ```
+
+We have added the **_development_** and **_local_** stage and also we are pointing to **_endpoints.json_** which is defined as below.
+
+**endpoint.json**
+
+```json
+{
+  "CloudFormation": "http://localhost:4566",
+  "CloudWatch": "http://localhost:4566",
+  "Lambda": "http://localhost:4566",
+  "S3": "http://localhost:4566",
+  "APIGateway": "http://localhost:4566",
+  "Route53": "http://localhost:4566"
+}
+```
+
+We can add the gateway events in serverless.yml file as shown below. It has an **_GET_** endpoint with path as **_hello_**
+
+```yaml
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: hello
+          method: get
+```
+
+Now let us deploy using below command.
+
+```sh
+serverless deploy --stage local
+```
+
+![serverless-local-endpoint](./serverless-local-endpoint.png)
+
+You can see in the above screenshot, you will see we have deployed the serverless function to LocalStack which returns the endpoints as shown below
+
+```sh
+endpoints:
+  http://localhost:4566/restapis/7133myfcjr/local/_user_request_
+```
+
+To invoke the hello function use the following URL in the Browser
+
+```sh
+http://localhost:4566/restapis/7133myfcjr/local/_user_request_/hello
+```
+
+![serverless-gateway-response](./serverless-gateway-response.png)
