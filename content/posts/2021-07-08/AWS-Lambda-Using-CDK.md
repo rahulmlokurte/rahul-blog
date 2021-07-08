@@ -1,6 +1,6 @@
 ---
 slug: "/posts/2021-07-08/AWS-Lambda-Using-CDK/"
-date: "2021-06-25"
+date: "2021-07-08"
 title: "AWS Lambda Using CDK"
 excerpt: "AWS CDK(Cloud Development Kit) is a framework that allows developer to use familiar programming languages to define AWS cloud infrastructure and provision it."
 tag: "cloud"
