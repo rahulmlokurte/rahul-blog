@@ -44,7 +44,7 @@ Let us install AWS lambda construct library.
 npm install @aws-cdk/aws-lambda
 ```
 
-Edit the file \*\*\*lib/cdk-greetapp-stack.js to create an AWS lammbda resource as shown below.
+Edit the file lib/cdk-greetapp-stack.js to create an AWS lammbda resource as shown below.
 
 ```javascript
 const cdk = require("@aws-cdk/core");
@@ -88,9 +88,12 @@ Add the lambda code to **_greet.js_**
 ```javascript
 exports.handler = async function (event) {
   console.log("request:", JSON.stringify(event, undefined, 2));
+  var name = event.pathParameters.name
+    ? event.pathParameters.name
+    : event.pathParameters.proxy;
   let response = {
     statusCode: 200,
-    body: `Hello ${event.path}. Welcome to CDK!`,
+    body: `Hello ${name}. Welcome to CDK!`,
   };
   return response;
 };
