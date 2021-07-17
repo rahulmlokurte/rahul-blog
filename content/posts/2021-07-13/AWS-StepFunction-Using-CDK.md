@@ -2,7 +2,7 @@
 slug: "/posts/2021-07-13/AWS-StepFunction-Using-CDK/"
 date: "2021-07-11"
 title: "AWS StepFunction Using CDK"
-excerpt: "Amazon simple storage service (S3) is an object storage built to store and retrieve unlimited amount of data."
+excerpt: "AWS Step Function service is usued to orchestrate a workflow consisting of serverless Functions and integrating with other AWS service to bundle application.."
 tag: "cloud"
 ---
 
